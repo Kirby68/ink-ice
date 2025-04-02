@@ -5,7 +5,8 @@ export default {
     return {
       products: [
 
-      ]
+      ],
+        colvo: 1,
     };
   },
   mounted() {
@@ -19,6 +20,13 @@ export default {
             this.products = res.data.data
           })
     },
+      plusQty() {
+          this.colvo++
+      },
+      minusQty() {
+          if (this.colvo === 1) return
+          this.colvo--
+      },
       addToCard(product) {
 
           let cart = localStorage.getItem('cart')
@@ -28,7 +36,7 @@ export default {
                   'image_url': product.image_url,
                   'name': product.name,
                   'price': product.price,
-                  'qty': 1
+                  'qty': this.colvo
               }
           ]
 
@@ -111,7 +119,7 @@ export default {
                 <div
                     class="shop-details-top-price-box d-flex align-items-center justify-content-between flex-wrap ">
                   <div>
-                    <h3 class="pe-1"> {{products.price}} </h3>
+                    <h3 class="pe-1"> {{products.price}} <p>руб</p></h3>
                   </div>
                 </div>
                 <div class="product-quantity m-0">
@@ -119,9 +127,9 @@ export default {
                   <div class="product-quantity-box d-flex align-items-center flex-wrap">
                     <div class="qty mr-2">
                       <div class="qtySelector text-center"> <span class="decreaseQty"><i
-                          class="flaticon-minus"></i> </span> <input type="number"
-                                                                     class="qtyValue" value="1" disabled/> <span class="increaseQty"> <i
-                          class="flaticon-plus"></i> </span> </div>
+                          class="flaticon-minus" @click.prevent="minusQty()"></i> </span> <input type="number"
+                                                                     class="qtyValue" :value="colvo" disabled/> <span class="increaseQty"> <i
+                          class="flaticon-plus" @click.prevent="plusQty()"></i> </span> </div>
                     </div>
                     <div class="product-quantity-check"> <i class="flaticon-select"></i>
                       <p>Осталось: {{products.count}}</p>

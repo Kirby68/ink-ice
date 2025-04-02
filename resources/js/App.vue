@@ -10,13 +10,21 @@ export default {
         return {
             count: 0,
             accessToken: null,
+            person: [],
         };
     },
     mounted() {
         this.getAccessToken()
+        this.getPerson()
     },
 
     methods: {
+        getPerson() {
+            api.post('/api/auth/me')
+                .then ( res => {
+                    this.person = res.data;
+                })
+        },
         getAccessToken(){
             this.accessToken = localStorage.getItem('access_token')
             const token = localStorage.getItem('access_token')
@@ -114,6 +122,9 @@ export default {
 
                                                 <div class="right d-flex align-items-center justify-content-end">
                                                     <ul class="main-menu__widge-box d-flex align-items-center ">
+                                                        <li class="d-lg-block d-none" v-if="$store.getters.isAuthenticated === true && person.role === '1'">
+                                                            <a class="m-3"  href="/admin">admin</a>
+                                                        </li>
                                                         <li class="d-lg-block d-none" v-if="$store.getters.isAuthenticated === true">
                                                             <router-link class="m-3"  :to="{name: 'personal'}">personal</router-link>
                                                         </li>
@@ -182,7 +193,7 @@ export default {
                                                 <router-link to="/"><span>Главная</span></router-link>
                                             </li>
                                             <li class="dropdown-list">
-                                                <router-link to="/list"><span>Продуктыt</span></router-link>
+                                                <router-link to="/list"><span>Продукты</span></router-link>
                                             </li>
                                         </ul>
                                     </nav>
