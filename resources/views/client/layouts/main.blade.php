@@ -30,7 +30,7 @@
     <!-- Style Css -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
 </head>
 
 @yield('content')

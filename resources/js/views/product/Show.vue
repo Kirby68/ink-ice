@@ -18,7 +18,34 @@ export default {
           .then(res => {
             this.products = res.data.data
           })
-    }
+    },
+      addToCard(product) {
+
+          let cart = localStorage.getItem('cart')
+          let newProduct = [
+              {
+                  'id': product.id,
+                  'image_url': product.image_url,
+                  'name': product.name,
+                  'price': product.price,
+                  'qty': 1
+              }
+          ]
+
+          if (!cart) {
+              localStorage.setItem('cart', JSON.stringify(newProduct));
+          } else {
+              cart = JSON.parse(cart)
+              cart.forEach(productInCart => {
+                  if(productInCart.id === product.id) {
+                      productInCart.qty = Number(productInCart.qty) + 1
+                      newProduct = null
+                  }
+              })
+              Array.prototype.push.apply(cart, newProduct)
+              localStorage.setItem('cart', JSON.stringify(cart))
+          }
+      },
   }
 }
 </script>
@@ -93,7 +120,7 @@ export default {
                     <div class="qty mr-2">
                       <div class="qtySelector text-center"> <span class="decreaseQty"><i
                           class="flaticon-minus"></i> </span> <input type="number"
-                                                                     class="qtyValue" value="1" /> <span class="increaseQty"> <i
+                                                                     class="qtyValue" value="1" disabled/> <span class="increaseQty"> <i
                           class="flaticon-plus"></i> </span> </div>
                     </div>
                     <div class="product-quantity-check"> <i class="flaticon-select"></i>
@@ -101,7 +128,7 @@ export default {
                     </div>
                   </div>
                 </div>
-                <div class="shop-details-top-cart-box-btn"> <button class="btn--primary style2 "
+                <div class="shop-details-top-cart-box-btn"> <button @click.prevent="addToCard(products)" class="btn--primary style2 "
                                                                     type="submit">Добавить в корзину</button> </div>
                 <div class="shop-details-top-buy-now-btn"> <a href="№" class="btn--primary">Купить сейчас</a> </div>
               </div>

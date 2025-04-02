@@ -16,7 +16,7 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('build/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<script class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
     <!-- Preloader -->

@@ -42,7 +42,7 @@ align-items: center;">
             <input class="form-control mt-3 mb-3" type="text" name="name" v-model="name" placeholder="Имя">
             <input class="form-control mt-3 mb-3" type="text" name="surname" v-model="surname" placeholder="Фамилия">
             <input class="form-control mt-3 mb-3" type="text" name="patronymic" v-model="patronymic" placeholder="Отчество">
-            <input class="form-control mt-3 mb-3" type="number" name="age" v-model="age" placeholder="Возвраст">
+            <input class="form-control mt-3 mb-3" type="number" name="age" v-model="age" placeholder="Возраст">
             <input class="form-control mt-3 mb-3" type="text" name="address" v-model="address" placeholder="Адрес">
             <select name="gender" v-model="gender" class="custom-select form-control  mt-3 mb-3" id="exampleSelectBorder">
                 <option value="1">Мужской</option>
@@ -53,7 +53,7 @@ align-items: center;">
                    placeholder="Пароль">
             <input class="form-control mt-3 mb-3" type="password" name="Повторите пароль"
                    v-model="password_confirmation" placeholder="Password_confirmed">
-            <input type="submit" class="btn btn-primary mt-3 mb-3" value="Зарегестрироватся" @click.prevent="Login">
+            <input type="submit" class="btn btn-primary mt-3 mb-3" value="Зарегестрироваться" @click.prevent="Login">
         </div>
     </div>
 </template>

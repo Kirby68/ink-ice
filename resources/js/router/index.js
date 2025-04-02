@@ -8,7 +8,7 @@ import RegistrationView from '../views/user/Resgistration.vue'
 import PersonalView from '../views/user/Personal.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',

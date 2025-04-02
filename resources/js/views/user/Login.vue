@@ -7,15 +7,20 @@ export default {
         }
     },
     methods: {
-        Login() {
-            this.axios.post('/api/auth/login', {
-                'email': this.email,
-                'password': this.password
-            })
-                .then(res => {
-                    localStorage.setItem('access_token', res.data.access_token)
+        async Login() {
+            try {
+                axios.post('/api/auth/login', {
+                    'email': this.email,
+                    'password': this.password
+                }).then(res => {
+                    this.$store.dispatch('login', {
+                        token: res.data.access_token
+                    });
                     this.$router.push({name: 'personal'})
                 })
+            } catch (error) {
+                console.log('Ошибка авторизации: ', error)
+            }
         }
     }
 }

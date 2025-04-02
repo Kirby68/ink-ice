@@ -18,7 +18,6 @@ export default {
             api.post('/api/auth/me')
                 .then ( res => {
                     this.person = res.data;
-                    console.log(res.data);
                 })
         }
     }

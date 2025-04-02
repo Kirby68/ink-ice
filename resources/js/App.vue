@@ -3,6 +3,7 @@ import {RouterLink, RouterView} from 'vue-router'
 import axios from "axios";
 import api from "./api.js";
 import router from "./router/index.js";
+import {mapActions, mapMutations, mapState} from "vuex";
 
 export default {
     data() {
@@ -15,13 +16,13 @@ export default {
         this.getAccessToken()
     },
 
-    updated() {
-        this.getAccessToken()
-    },
-
     methods: {
         getAccessToken(){
             this.accessToken = localStorage.getItem('access_token')
+            const token = localStorage.getItem('access_token')
+            if(token){
+                this.$store.dispatch('login', {token})
+            }
         },
         remove(id) {
             this.products = this.products.filter(product => {
@@ -35,7 +36,7 @@ export default {
         logout() {
             api.post('/api/auth/logout')
                 .then( res => {
-                    localStorage.removeItem('access_token')
+                    this.$store.dispatch('logout')
                     router.push({name: 'index'})
                 })
         }
@@ -113,17 +114,17 @@ export default {
 
                                                 <div class="right d-flex align-items-center justify-content-end">
                                                     <ul class="main-menu__widge-box d-flex align-items-center ">
-                                                        <li v-if="!accessToken" class="d-lg-block d-none">
+                                                        <li class="d-lg-block d-none" v-if="$store.getters.isAuthenticated === true">
+                                                            <router-link class="m-3"  :to="{name: 'personal'}">personal</router-link>
+                                                        </li>
+                                                        <li  class="d-lg-block d-none" v-if="$store.getters.isAuthenticated === true">
+                                                            <input @click.prevent="logout(accessToken)" type="submit" class="btn btn-primary" value="выйти">
+                                                        </li>
+                                                        <li class="d-lg-block d-none" v-if="$store.getters.isAuthenticated === false">
                                                             <router-link to="/loginn">Вход</router-link>
                                                         </li>
-                                                        <li v-if="!accessToken" class="d-lg-block d-none">
+                                                        <li class="d-lg-block d-none" v-if="$store.getters.isAuthenticated === false">
                                                             <router-link to="/registrationn">Регистрация</router-link>
-                                                        </li>
-                                                        <li class="d-lg-block d-none">
-                                                            <router-link class="m-3" v-if="accessToken" :to="{name: 'personal'}">personal</router-link>
-                                                        </li>
-                                                        <li v-if="accessToken" class="d-lg-block d-none">
-                                                        <input @click.prevent="logout(accessToken)" type="submit" class="btn btn-primary" value="выйти">
                                                         </li>
                                                         <li class="d-lg-block d-none"><a href="№"
                                                                                          class="number"><i

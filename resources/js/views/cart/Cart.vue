@@ -131,7 +131,7 @@ export default {
                                                     @click.prevent="minusQty(product)" class="decreaseQty"><i
                                                     class="flaticon-minus"></i> </span> <input type="number"
                                                                                                class="qtyValue"
-                                                                                               :value="product.qty"/>
+                                                                                               :value="product.qty" disabled/>
                                                     <span @click.prevent="plusQty(product)" class="increaseQty"> <i
                                                         class="flaticon-plus"></i> </span></div>
                                             </td>
@@ -221,7 +221,7 @@ export default {
                                             <p>Итоговая стоимость: </p>
                                         </div>
                                         <div class="right">
-                                            <p>2550 руб</p>
+                                            <p>{{ totalPrice + 450 }} руб</p>
                                         </div>
                                     </li>
                                 </ul>
