@@ -122,7 +122,7 @@ export default {
 
                                                 <div class="right d-flex align-items-center justify-content-end">
                                                     <ul class="main-menu__widge-box d-flex align-items-center ">
-                                                        <li class="d-lg-block d-none" v-if="$store.getters.isAuthenticated === true && person.role === '1'">
+                                                        <li class="d-lg-block d-none" v-if="$store.getters.isAuthenticated === true && $store.getters.isAdmin === true">
                                                             <a class="m-3"  href="/admin">admin</a>
                                                         </li>
                                                         <li class="d-lg-block d-none" v-if="$store.getters.isAuthenticated === true">

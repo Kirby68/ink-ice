@@ -6,6 +6,7 @@ import CartView from '../views/cart/Cart.vue'
 import LoginView from '../views/user/Login.vue'
 import RegistrationView from '../views/user/Resgistration.vue'
 import PersonalView from '../views/user/Personal.vue'
+import AdminIndexView from '../views/admin/index.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/personal',
       name: 'personal',
       component: PersonalView,
+    },
+    {
+      path: '/test',
+      name: 'admin',
+      component: AdminIndexView,
     },
     {
       path: '/:catchAll(.*)',

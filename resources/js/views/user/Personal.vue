@@ -11,6 +11,7 @@ export default {
 
     mounted() {
         this.getPerson()
+        this.admin()
     },
 
     methods: {
@@ -19,6 +20,9 @@ export default {
                 .then ( res => {
                     this.person = res.data;
                 })
+        },
+        admin(){
+            this.$store.dispatch('admin')
         }
     }
 

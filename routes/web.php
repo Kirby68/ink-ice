@@ -42,4 +42,5 @@ Route::group(['namespace' => 'App\Http\Controllers\Main', 'prefix' => 'admin'], 
 });
 
 Route::get('{page}', 'App\Http\Controllers\Client\IndexController')->where('page', '(.*)');
+Route::get('/test', 'App\Http\Controllers\Client\AdmController');
 
