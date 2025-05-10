@@ -116,7 +116,7 @@
                         <div class="form-group">
                             <label for="exampleSelectBorder" class="form-label">Роль</label>
                             <select name="role" class="custom-select form-control" id="exampleSelectBorder">
-                                <option disabled selected>Пол</option>
+                                <option disabled selected>Роль</option>
                                 <option {{old('role') == 1 ? ' selected' : '' }} value="0">Пользователь</option>
                                 <option {{old('role') == 2 ? ' selected' : '' }} value="1">Админ</option>
                             </select>

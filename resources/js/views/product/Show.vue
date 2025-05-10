@@ -15,7 +15,7 @@ export default {
 
   methods: {
     getProduct(id) {
-      this.axios.get(`http://127.0.0.1:8000/api/products/${this.$route.params.id}`)
+      this.axios.get(`/api/products/${this.$route.params.id}`)
           .then(res => {
             this.products = res.data.data
           })

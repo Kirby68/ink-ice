@@ -18,7 +18,7 @@ export default {
 
   methods: {
     getProducts() {
-      this.axios.get('http://127.0.0.1:8000/api/products')
+      this.axios.get('/api/products')
           .then(res => {
               this.products = res.data
           })
@@ -74,7 +74,7 @@ export default {
                       <div class="products-three-single-img">
                           <router-link :to="{name: 'show', params: {id: product.id}}" class="d-block"><img
                               :src="product.image_url" class="first-img" alt=""/> <img
-                              :src="product.image_url" alt="" class="hover-img" style="height: 300px"/>
+                              :src="product.image_url" alt="" class="hover-img" style="height: 325px"/>
                           </router-link>
                           <a @click.prevent="addToCard(product)" class="addcart btn--primary style2"> Добавить в корзину </a>
                       </div>

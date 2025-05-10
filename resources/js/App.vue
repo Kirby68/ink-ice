@@ -20,6 +20,10 @@ export default {
 
     methods: {
         getPerson() {
+            let cart = localStorage.getItem('cart')
+            if (!cart) {
+                localStorage.setItem('cart', []);
+            }
             api.post('/api/auth/me')
                 .then ( res => {
                     this.person = res.data;

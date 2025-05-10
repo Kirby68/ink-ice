@@ -9,7 +9,7 @@ Route::middleware(['jwt.auth'])->group(function () {
     });
 });
 
-Route::post('/orders', App\Http\Controllers\API\Order\StoreController::class);
+
 Route::post('/login', App\Http\Controllers\API\User\LoginController::class);
 Route::post('/registration', App\Http\Controllers\API\User\RegistrationController::class);
 Route::get('/products', App\Http\Controllers\API\Product\IndexController::class);
@@ -28,5 +28,5 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
-
+    Route::post('/orders', App\Http\Controllers\API\Order\StoreController::class);
 });

@@ -14,7 +14,7 @@ export default {
 
   methods: {
     getProducts() {
-      this.axios.get('http://127.0.0.1:8000/api/products')
+      this.axios.get('/api/products')
           .then(res => {
               this.products = res.data;
               this.count = this.products.length

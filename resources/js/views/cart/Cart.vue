@@ -41,7 +41,8 @@ export default {
                 'total_price': this.totalPrice
             })
                 .then(res => {
-                    console.log(res);
+                    this.products = []
+                    this.updateCart();
                 })
         },
 
