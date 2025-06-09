@@ -93,6 +93,12 @@ export default {
                                     <li class="dropdown-list">
                                         <router-link to="/list"><span>Продукты</span></router-link>
                                     </li>
+                                    <li class="dropdown-list">
+                                        <router-link to="/about"><span>О нас</span></router-link>
+                                    </li>
+                                    <li class="dropdown-list">
+                                        <router-link to="/contacts"><span>Контакты</span></router-link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -119,6 +125,12 @@ export default {
                                                         </li>
                                                         <li class="dropdown-list">
                                                             <router-link to="/list"><span>Продукты</span></router-link>
+                                                        </li>
+                                                        <li class="dropdown-list">
+                                                            <router-link to="/about"><span>О нас</span></router-link>
+                                                        </li>
+                                                        <li class="dropdown-list">
+                                                            <router-link to="/contacts"><span>Контакты</span></router-link>
                                                         </li>
                                                     </ul>
                                                 </nav>
@@ -198,6 +210,12 @@ export default {
                                             </li>
                                             <li class="dropdown-list">
                                                 <router-link to="/list"><span>Продукты</span></router-link>
+                                            </li>
+                                            <li class="dropdown-list">
+                                                <router-link to="/about"><span>О нас</span></router-link>
+                                            </li>
+                                            <li class="dropdown-list">
+                                                <router-link to="/contacts"><span>Контакты</span></router-link>
                                             </li>
                                         </ul>
                                     </nav>
